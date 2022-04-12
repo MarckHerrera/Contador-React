@@ -3,10 +3,8 @@ import React from 'react';
 
 function App() {
   let [renderito, setRenderito] = React.useState(0)
+  
 
-  //function color() {
-    //document.getElementById('texto').style.color = "purple";
-  //}
   function sumar(){
     
     
@@ -16,9 +14,6 @@ function App() {
 
   function reset() {
     setRenderito(renderito=0)
-    if (renderito === 0) {
-      document.getElementById('contador').style.color = "white";
-    }
     
   }
 
@@ -28,16 +23,22 @@ function App() {
     
   }
 
-
-    if (renderito > 0) {
-      document.getElementById('contador').style.color = "green";
-    } 
-    if (renderito < 0) {
-      document.getElementById('contador').style.color = "red";
+    function blanco() {
+      if (renderito === 0) {
+        document.getElementById('contador').style.color = "white";
+      } if (renderito > 0) {
+        document.getElementById('contador').style.color = "green";
+      } 
+      if (renderito < 0) {
+        document.getElementById('contador').style.color = "red";
+      }
+      
     }
 
-  
-
+    React.useEffect(()=>{
+      blanco();
+    })
+    
   return (
 
     
